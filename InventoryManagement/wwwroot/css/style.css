@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
+    font-weight: 400;
 }
 
 .sidebar {
@@ -21,7 +22,7 @@ body {
     left: 0;
     height: 100%;
     width: 240px;
-    background: #2a364e;
+    background: #191129;
     padding: 6px 14px;
 }
 
@@ -40,7 +41,7 @@ body {
 
 .logo_content .logo .logo_name{
     font-size:20px;
-    font-weight:400;
+    font-weight:500;
 }
 
 .sidebar #btn{
@@ -74,11 +75,64 @@ body {
     display:flex;
     align-items:center;
     text-decoration:none;
+    transition: all 0.4s ease;
+    border-radius:12px;
 }
 
-.sidebar ul li a i{
+.sidebar ul li a:hover{
+    color:#191129;
+    background:#fff;
+}
+
+.sidebar ul li i{
     height:50px;
     min-width:50px;
     border-radius:12px;
     line-height:50px;
+    text-align:center;
+}
+
+.sidebar .profile_content{
+    position:absolute;
+    color:#fff;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+.sidebar .profile_content .profile {
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background: #5D389F;
+}
+.profile_content .profile .profile_details{
+    display:flex;
+    align-items:center;
+}
+.profile .profile_details img{
+    height:45px;
+    width:45px;
+    object-fit:cover;
+    border-radius:12px;
+}
+.profile .profile_details .name_job {
+    margin-left: 10px;
+}
+.profile_details .name_job .name{
+    font-size:15px;
+    font-weight:500;
+}
+.profile_details .name_job .job {
+    font-size: 12px;
+}
+.profile #log_out{
+    position:absolute;
+    left:88%;
+    bottom:5px;
+    transform:translateX(-50%);
+    min-width:50px;
+    line-height:50px;
+    font-size:20px;
+    border-radius:12px;
 }
