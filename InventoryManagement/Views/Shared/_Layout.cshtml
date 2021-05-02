@@ -1,81 +1,90 @@
 ﻿<!DOCTYPE html>
-
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/css/style.css" rel="stylesheet" />
-    @* boxicons *@
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div class="sidebar">
-        <div class="logo_content">
-            <div class="logo">
-                <i class="fas fa-luggage-cart"></i>
-                <div class="logo_name">Magic Inventory</div>
-            </div>
-            <i class="fas fa-bars" id="btn"></i>
-        </div>
-        <ul class="nav_list">
-            <li>
-                <a href="#">
-                    <i class="fas fa-home"></i>
-                    <span class="links_name">Home</span>
-                </a>
-                @* <span class="tooltip">DashBoard</span> *@
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-warehouse"></i>
-                    <span class="links_name">Products</span>
-                </a>
-                @* <span class="tooltip">DashBoard</span> *@
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-users"></i>
-                    <span class="links_name">Users</span>
-                </a>
-                @* <span class="tooltip">DashBoard</span> *@
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-book"></i>
-                    <span class="links_name">Categories</span>
-                </a>
-                @* <span class="tooltip">DashBoard</span> *@
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-building"></i>
-                    <span class="links_name">Brands</span>
-                </a>
-                @* <span class="tooltip">DashBoard</span> *@
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="links_name">Orders</span>
-                </a>
-                @* <span class="tooltip">DashBoard</span> *@
-            </li>
-        </ul>
-        <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    <img src="~/images/profile.jpg" alt="profile picture"/>
-                    <div class="name_job">
-                        <div class="name">Aziz Amari</div>
-                        <div class="job">EZZZZZZ</div>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link href="~/css/style.css" rel="stylesheet" />
+        @* boxicons *@
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <div class="logo_content">
+                    <div class="logo">
+                        <i class="fas fa-luggage-cart"></i>
+                        <div class="logo_name">Magic Inventory</div>
+                    </div>
+                    <i class="fas fa-bars" id="btn"></i>
+                </div>
+                <ul class="nav_list">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span class="links_name">Home</span>
+                        </a>
+                         <span class="tooltip">Home</span> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-warehouse"></i>
+                            <span class="links_name">Products</span>
+                        </a>
+                        <span class="tooltip">Products</span> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span class="links_name">Users</span>
+                        </a>
+                        <span class="tooltip">Users</span> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-book"></i>
+                            <span class="links_name">Categories</span>
+                        </a>
+                        <span class="tooltip">Categories</span> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-building"></i>
+                            <span class="links_name">Brands</span>
+                        </a>
+                        <span class="tooltip">Brands</span> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="links_name">Orders</span>
+                        </a>
+                        <span class="tooltip">Orders</span> 
+                    </li>
+                </ul>
+                <div class="profile_content">
+                    <div class="profile">
+                        <div class="profile_details">
+                            <img src="~/images/profile.jpg" alt="profile picture" />
+                            <div class="name_job">
+                                <div class="name">Aziz Amari</div>
+                                <div class="job">EZZZZZZ</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-sign-out-alt" id="log_out"></i>
                     </div>
                 </div>
-                <i class="fas fa-sign-out-alt" id="log_out"></i>
+            </div>
+            <div class="content">
+                @RenderBody()
             </div>
         </div>
-    </div>
-    <div>
-        @RenderBody()
-    </div>
-</body>
+        <script>
+            let btn = document.querySelector("#btn");
+            let sidebar = document.querySelector(".sidebar");
+
+            btn.onclick = function () {
+                sidebar.classList.toggle("active");
+            }
+        </script>
+    </body>
 </html>
