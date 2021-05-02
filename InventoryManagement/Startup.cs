@@ -6,14 +6,27 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using InventoryManagement.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace InventoryManagement
 {
     public class Startup
     {
+        public IConfiguration Config { get; }
+
+        public Startup(IConfiguration config)
+        {
+            Config = config;
+        }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options=> 
+            {
+                options.UseNpgsql(Config.GetConnectionString("pgsql"));
+            });
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 

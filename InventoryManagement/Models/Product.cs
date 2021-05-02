@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Models
 {
-    public class Brand
+    public class Product
     {
         [Key]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Email { get; set; }
+        public decimal Price { get; set; }
+        [Required]
+        public int Stock { get; set; }
         public Category Category { get; set; }
+        public Brand Brand { get; set; }
 
-        public ICollection<Product> Products { get; set; }
     }
 }

@@ -1,0 +1,13 @@
+﻿@model InventoryManagement.Models.Brand
+
+@{ 
+
+}
+<h2>Brands</h2>
+<form asp-controller="Brands" asp-action="Index" method="post">
+    <label asp-for="Name"></label>
+    <input type="text" name="Name" asp-for="Name" />
+    <label asp-for="Email"></label>
+    <input type="text" name="Email" asp-for="Email" />
+    <input type="submit" value="Add"/>
+</form>
