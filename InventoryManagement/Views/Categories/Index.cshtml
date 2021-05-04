@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Category>
+@{ 
+
+}
+
+<div>
+    <h2>Categories List</h2>
+    <table>
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Products
+            </th>
+        </tr>
+        @foreach(var category in Model)
+        {
+            <tr>
+                <td>
+                    @category.Name
+                </td>
+                <td>
+                    20 products
+                </td>
+                <td>
+                    <a asp-controller="Categories" asp-action="GetCategory" asp-route-name="@category.Name">Details</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="Categories" asp-action="Add">Add Category</a>
+</div>

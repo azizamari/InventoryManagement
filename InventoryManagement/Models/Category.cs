@@ -10,7 +10,7 @@ namespace InventoryManagement.Models
     public class Category
     {
         [Key]
+        [Required]
         public string Name { get; set; }
-
     }
 }
