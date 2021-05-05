@@ -22,19 +22,14 @@ namespace InventoryManagement.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var categories = _db.Categories.ToList();
-            if (categories.Count ==0)
-            {
-                var test = new List<Category>() { new Category() { Name = "test" }, new Category() { Name = "test2" } };
-                return View("Index",test);
-            }
+            var categories = _db.Categories;
             return View(categories);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            return View(null);
+            return View();
         }
 
         [HttpPost]
@@ -55,7 +50,7 @@ namespace InventoryManagement.Controllers
         public async Task<IActionResult> GetCategory(string Name)
         {
             var categories = await _db.Categories.Where(c => c.Name == Name).ToListAsync();
-            if (categories.Count != 0)
+            if (categories.Count != 1)
             {
                 return NotFound();
             }

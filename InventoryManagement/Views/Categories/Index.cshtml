@@ -5,29 +5,38 @@
 
 <div>
     <h2>Categories List</h2>
-    <table>
-        <tr>
-            <th>
-                Category Name
-            </th>
-            <th>
-                Products
-            </th>
-        </tr>
-        @foreach(var category in Model)
-        {
+    @if (Model.Count() == 0)
+    {
+        <h4>No Category Found</h4>
+    }
+    else
+    {
+
+        <table>
             <tr>
-                <td>
-                    @category.Name
-                </td>
-                <td>
-                    20 products
-                </td>
-                <td>
-                    <a asp-controller="Categories" asp-action="GetCategory" asp-route-name="@category.Name">Details</a>
-                </td>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Products
+                </th>
             </tr>
-        }
-    </table>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>
+                        @category.Name
+                    </td>
+                    <td>
+                        20 products
+                    </td>
+                    <td>
+                        <a asp-controller="Categories" asp-action="GetCategory" asp-route-name="@category.Name">Details</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    }
     <a asp-controller="Categories" asp-action="Add">Add Category</a>
 </div>
