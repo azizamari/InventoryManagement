@@ -57,32 +57,32 @@ namespace InventoryManagement.Controllers
             return View("Brand", brand);
         }
 
-        //[HttpDelete]
-        //[Route("{M}")]
-        //public async Task<IActionResult> DeleteCategory(int id)
-        //{
-        //    // delete category
-        //    var category = await _db.Categories.FindAsync(new { id = id });
-        //    if (category == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _db.Categories.Remove(category);
-        //    await _db.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            // delete category
+            var brand = await _db.Brands.FindAsync(new { id = id });
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            _db.Brands.Remove(brand);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
-        //[HttpPatch]
-        //[Route("{id:int}")]
-        //public async Task<IActionResult> UpdateCategory(int id, Category category)
-        //{
-        //    // update category
-        //    if (ModelState.IsValid)
-        //    {
-        //        _db.Categories.Update(category);
-        //        await _db.SaveChangesAsync();
-        //    }
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPatch]
+        [Route("{id:int}")]
+        public async Task<IActionResult> UpdateCategory(int id, Brand brand)
+        {
+            // update category
+            if (ModelState.IsValid)
+            {
+                _db.Brands.Update(brand);
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
