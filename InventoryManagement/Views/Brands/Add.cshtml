@@ -1,0 +1,15 @@
+﻿@model Brand
+
+@{
+
+}
+<h2>Add Category</h2>
+<form asp-controller="Brands" asp-action="Add" method="post">
+    <label asp-for="Name"></label>
+    <input type="text" name="Name" asp-for="Name" />
+    <label asp-for="Email"></label>
+    <input type="text" name="email" asp-for="Email" />
+    <label asp-for="Description"></label>
+    <input type="text" name="description" asp-for="Description" />
+    <input type="submit" value="Add" />
+</form>
