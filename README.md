@@ -1,3 +1,10 @@
 # InventoryManagement
-### This is an interesting I'm currently working on 
+## This is an interesting I'm currently working on 
+#### Technical Stack:
+* ASP.NET Core
+* C#
+* EntityFramekwork Core
+* OAuth
+* PostgreSQL
+* Html/ css/ javascript
 More details soon  
