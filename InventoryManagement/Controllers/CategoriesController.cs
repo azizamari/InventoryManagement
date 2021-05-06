@@ -58,16 +58,16 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpDelete]
-        [Route("{M}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        [Route("{controller}/{name}")]
+        public async Task<IActionResult> DeleteCategory(string Name)
         {
             // delete category
-            var category = await _db.Categories.FindAsync(new { id = id });
-            if (category == null)
+            var categories = await _db.Categories.Where(c => c.Name == Name).ToListAsync();
+            if (categories.Count==0)
             {
                 return NotFound();
             }
-            _db.Categories.Remove(category);
+            _db.Categories.Remove(categories[0]);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

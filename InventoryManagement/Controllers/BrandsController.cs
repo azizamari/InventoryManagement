@@ -58,22 +58,21 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:int}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        [Route("{controller}/{id:int}")]
+        public async Task<IActionResult> DeleteBrand(int id)
         {
-            // delete category
-            var brand = await _db.Brands.FindAsync(new { id = id });
+            var brand = await _db.Brands.FindAsync(id);
             if (brand == null)
             {
                 return NotFound();
             }
             _db.Brands.Remove(brand);
             await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Ok();
         }
 
         [HttpPatch]
-        [Route("{id:int}")]
+        [Route("{controller}/{id:int}")]
         public async Task<IActionResult> UpdateCategory(int id, Brand brand)
         {
             // update category
