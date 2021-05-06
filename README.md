@@ -1,5 +1,5 @@
 # InventoryManagement
-## This is an interesting I'm currently working on 
+## This is an interesting project I'm currently working on 
 #### Technical Stack:
 * ASP.NET Core
 * C#
