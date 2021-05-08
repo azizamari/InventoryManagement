@@ -27,6 +27,7 @@ namespace InventoryManagement
             {
                 options.UseNpgsql(Config.GetConnectionString("pgsql"));
             });
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
