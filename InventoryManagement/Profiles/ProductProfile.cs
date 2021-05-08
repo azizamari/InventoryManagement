@@ -9,7 +9,7 @@ namespace InventoryManagement.Profiles
         {
             CreateMap<ProductDto, Product>()
                 .ForMember(dest=>dest.Category.Name,opt=>opt.MapFrom(src=>src.CategoryName))
-                .ForMember(dest=>dest.Brand.Id,opt=>opt.MapFrom(src=>src.BrandId));
+                .ForMember(dest=>dest.Brand.Id,opt=>opt.MapFrom(src=>src.BrandId))
                 .ForMember(dest=>dest.Brand.Id,opt=>opt.MapFrom(src=>src.BrandId));
         }
     }
