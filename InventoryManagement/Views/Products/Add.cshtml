@@ -1,0 +1,19 @@
+﻿@model ProductDto
+
+@{
+
+}
+<h2>Add Product</h2>
+<form asp-controller="Products" asp-action="Add" method="post">
+    <label asp-for="Name"></label>
+    <input type="text" name="Name" asp-for="Name" />
+    <label asp-for="Price"></label>
+    <input type="number" name="Price" asp-for="Price" />
+    <label asp-for="Stock"></label>
+    <input type="text" name="Stock" asp-for="Stock" />
+    <label asp-for="CategoryName"></label>
+    <input type="text" name="CategoryName" asp-for="CategoryName" />
+    <label asp-for="BrandId"></label>
+    <input type="number" name="BrandId" asp-for="BrandId" />
+    <input type="submit" value="Add" />
+</form>
