@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Data;
+﻿using AutoMapper;
+using InventoryManagement.Data;
 using InventoryManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -8,10 +9,12 @@ namespace InventoryManagement.Controllers
     public class ProductsController: Controller
     {
         private readonly AppDbContext _db;
+        private readonly IMapper _mapper;
 
-        public ProductsController(AppDbContext db)
+        public ProductsController(AppDbContext db, IMapper mapper)
         {
             _db = db;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -28,12 +31,13 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(Product product)
+        public async Task<IActionResult> Add(ProductDto product)
         {
             // save to db
             if (ModelState.IsValid)
             {
-                await _db.Products.AddAsync(product);
+                var productToSave = _mapper.Map<Product>(product);
+                await _db.Products.AddAsync(productToSave);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
