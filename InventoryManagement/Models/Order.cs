@@ -10,15 +10,15 @@ namespace InventoryManagement.Models
     public class Order
     {
         [Key]
-        public int Id;
+        public int Id { get; set; }  
         [Required]
-        public ICollection<(Product Product, int Quantity)> products;
+        public ICollection<(Product Product, int Quantity)> products { get; set; }
         [Required]
-        public string BuyerName;
+        public string BuyerName { get; set; }
         [Required]
-        public string BuyerPhoneNumber;
+        public string BuyerPhoneNumber { get; set; }
         [Required]
-        public string Status;
+        public string Status { get; set; }
         // delivered - canceled - on going
     }
 }
