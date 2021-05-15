@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Models
 {
-    public class Orders
+    public class Order
     {
         [Key]
-        public Guid Id;
+        public int Id;
         [Required]
         public ICollection<(Product Product, int Quantity)> products;
         [Required]
