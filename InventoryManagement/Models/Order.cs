@@ -12,7 +12,7 @@ namespace InventoryManagement.Models
         [Key]
         public int Id { get; set; }  
         [Required]
-        public ICollection<(Product Product, int Quantity)> products { get; set; }
+        public ICollection<ProductWithQuantity> Item { get; set; }
         [Required]
         public string BuyerName { get; set; }
         [Required]
