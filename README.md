@@ -1,4 +1,5 @@
 # InventoryManagement
+## On Hold until I finish exams
 ## This is an interesting project I'm currently working on 
 #### Technical Stack:
 * ASP.NET Core
